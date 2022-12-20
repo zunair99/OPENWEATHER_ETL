@@ -2,8 +2,8 @@
 import os
 import requests
 import pandas as pd
-import json
-from sqlalchemy import create_engine #importing to connect to Postgres
+import json 
+from sqlalchemy import create_engine
 
 def initialize_api_key():
     # Set environment variables
@@ -13,7 +13,7 @@ def initialize_api_key():
 def clean_worldcities():
 
     # Importing the dataset to map the cities
-    worldcities = pd.read_csv('dags/worldcities.csv')
+    worldcities = pd.read_csv('dags\data\worldcities.csv')
     
     # Dropping duplicates and null values
     worldcities.drop_duplicates(subset=['city_ascii', 'lat','lng'], inplace=True)
@@ -25,7 +25,8 @@ def clean_worldcities():
 
     return worldcities
 
-
+w = clean_worldcities()
+w.dtypes
 # Extracting the data
 def extract_openmap():
 
@@ -62,7 +63,9 @@ def extract_openmap():
     df_full.drop('icon', axis=1, inplace=True)
     
     return df_full
-
+d = extract_openmap()
+print(d)
+d.dtypes
 def join_to_worldcities():
     openmap_df = extract_openmap()
 
@@ -78,7 +81,8 @@ def join_to_worldcities():
     df = df.loc[:,['city_id','city_ascii','city','country','lat','lng','iso3','population','weather_id','weather_main','weather_description','temp','feels_like','temp_min','temp_max','pressure','humidity','sea_level','grnd_level']]
     
     return df
-
+j = join_to_worldcities()
+j.dtypes
 def load_to_postgres():
     df = join_to_worldcities()
     conn_string = 'postgresql://airflow:airflow@postgres:5432/airflow'
