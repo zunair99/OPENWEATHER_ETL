@@ -9,3 +9,7 @@
 ### Airflow and Postgres are ran in a Docker container for compartmentalization.# OpenWeatherMap-ETL
 
 ![logo_white_cropped](https://user-images.githubusercontent.com/75954323/208560365-558b341e-f294-4bd9-8b8b-db336ad0ff99.png)
+
+![1200px-AirflowLogo](https://user-images.githubusercontent.com/75954323/208560405-5b86d478-9d64-4d94-bea9-009612c8fdcf.png)
+
+![homepage-docker-logo](https://user-images.githubusercontent.com/75954323/208560422-a0be60a9-0d33-48df-8b2b-da2a27897f2b.png)
