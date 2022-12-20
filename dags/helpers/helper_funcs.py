@@ -25,8 +25,6 @@ def clean_worldcities():
 
     return worldcities
 
-w = clean_worldcities()
-w.dtypes
 # Extracting the data
 def extract_openmap():
 
@@ -63,9 +61,7 @@ def extract_openmap():
     df_full.drop('icon', axis=1, inplace=True)
     
     return df_full
-d = extract_openmap()
-print(d)
-d.dtypes
+
 def join_to_worldcities():
     openmap_df = extract_openmap()
 
