@@ -6,7 +6,7 @@
 ### Extracted data is joined to the World Cities CSV to map the lat and lng points to their respective cities and countries.
 ### Joined data is stored in a Postgres database.
 ### Airflow is used to orchestrate and schedule these tasks to run daily. Data is added to the Postgres data warehouse on the frequency of the Airflow tasks.
-### Airflow and Postgres are ran in a Docker container for compartmentalization.# OpenWeatherMap-ETL
+### Airflow and Postgres are ran in a Docker container for compartmentalization.
 ![OPENWEATHER ETL](https://user-images.githubusercontent.com/75954323/208722288-7c40175b-77c9-4cc9-bbb3-3bb48308059e.png)
 
 ![OPENWEATHER ETL SCHEMA](https://user-images.githubusercontent.com/75954323/208722304-2809a2cf-c16b-46b6-858c-c30ba818cd61.png)
