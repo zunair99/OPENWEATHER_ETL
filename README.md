@@ -7,3 +7,5 @@
 ### Joined data is stored in a Postgres database.
 ### Airflow is used to orchestrate and schedule these tasks to run daily. Data is added to the Postgres data warehouse on the frequency of the Airflow tasks.
 ### Airflow and Postgres are ran in a Docker container for compartmentalization.# OpenWeatherMap-ETL
+
+![logo_white_cropped](https://user-images.githubusercontent.com/75954323/208560365-558b341e-f294-4bd9-8b8b-db336ad0ff99.png)
