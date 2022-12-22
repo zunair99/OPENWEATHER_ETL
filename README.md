@@ -9,7 +9,7 @@
 ### Airflow and Postgres are ran in a Docker container for compartmentalization.
 ![OPENWEATHER ETL](https://user-images.githubusercontent.com/75954323/208722288-7c40175b-77c9-4cc9-bbb3-3bb48308059e.png)
 
-![OPENWEATHER ETL SCHEMA](https://user-images.githubusercontent.com/75954323/208722304-2809a2cf-c16b-46b6-858c-c30ba818cd61.png)
+![OPENWEATHER ETL SCHEMA](https://user-images.githubusercontent.com/75954323/209038606-02a9a998-2a57-4b49-83f0-741cfe2d9cab.png)
 
 
 ![logo_white_cropped](https://user-images.githubusercontent.com/75954323/208560365-558b341e-f294-4bd9-8b8b-db336ad0ff99.png)
