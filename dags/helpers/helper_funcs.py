@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 import json 
 from sqlalchemy import create_engine
+import psycopg2
 
 def initialize_api_key():
     # Set environment variables
@@ -77,10 +78,48 @@ def join_to_worldcities():
     df = df.loc[:,['city_id','city_ascii','city','country','lat','lng','iso3','population','weather_id','weather_main','weather_description','temp','feels_like','temp_min','temp_max','pressure','humidity','sea_level','grnd_level']]
     
     return df
-j = join_to_worldcities()
-j.dtypes
+d = join_to_worldcities()
+d.dtypes
+
 def load_to_postgres():
     df = join_to_worldcities()
-    conn_string = 'postgresql://airflow:airflow@postgres:5432/airflow'
+    conn_string = "postgresql://postgres:postgres@localhost:5432/postgres"
     engine = create_engine(conn_string)
-    df.to_sql('openweather', engine, if_exists='append', index=False)
+    conn = engine.connect()
+    conn1 = psycopg2.connect(
+        database="postgres",
+        user="postgres",
+        password="postgres",
+        host="localhost",
+        port='5432'
+    )
+    conn1.autocommit = True
+    cursor = conn1.cursor()
+    cursor.execute('drop table if exists openweather')
+    sql = """
+        CREATE TABLE openweather (
+            city_id int,
+            city_ascii varchar(255),
+            city varchar(255),
+            country varchar(255),
+            lat float,
+            lng float,
+            iso3 varchar(255),
+            population float,
+            weather_id int,
+            weather_main varchar(255),
+            weather_description varchar(255),
+            temp float,
+            feels_like float,
+            temp_min float,
+            temp_max float,
+            pressure float,
+            humidity float,
+            sea_level float,
+            grnd_level float
+        )
+    """
+    cursor.execute(sql)
+    df.to_sql('openweather', conn, if_exists='append', index=False)
+    conn1.commit()
+    conn1.close()
